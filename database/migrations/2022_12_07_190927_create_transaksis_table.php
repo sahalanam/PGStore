@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEMoneyTable extends Migration
+class CreateTransaksisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateEMoneyTable extends Migration
      */
     public function up()
     {
-        Schema::create('e_money', function (Blueprint $table) {
+        Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->integer('harga');
-            $table->string('deskripsi');
-            $table->integer('stok');
+            $table->date('date');
+            $table->integer('id_transaksi');
+            $table->string('metode_pembayaran');
+            $table->integer('total');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateEMoneyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('e_money');
+        Schema::dropIfExists('transaksis');
     }
 }

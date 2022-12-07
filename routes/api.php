@@ -2,6 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EMoneyController;
+use App\Http\Controllers\AkunController;
+use App\Http\Controllers\TransaksiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +20,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::resource('/emoney', EMoneyController::class);
+
+route::resource('/transaksi', TransaksiController::class);
+
+Route::post('/register', [AkunController::class, 'register']);
+Route::post('/login', [AkunController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [AkunController::class, 'logout']);
 });

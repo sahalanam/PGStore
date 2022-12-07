@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EMoney extends Model
+class Transaksi extends Model
 {
     protected $fillable =[
-        'nama','harga','deskripsi','stok'
+        'date','id_transaksi','metode_pembayaran','total'
     ];
 }
